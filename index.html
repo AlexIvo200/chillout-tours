@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ChillOutTours · Туры по Грузии из Тбилиси</title>
+  <meta name="description" content="Групповые туры по Грузии из Тбилиси каждый день: Кахетия, Казбеги, Боржоми и Вардзия, Большая Мцхета, Старый Тбилиси. Mercedes Sprinter, профессиональные гиды, от 45 лари.">
+  <meta name="theme-color" content="#140d11">
+  <meta property="og:title" content="ChillOutTours · Tours in Georgia">
+  <meta property="og:description" content="Кахетия, Казбеги, Боржоми, Мцхета и Старый Тбилиси. Каждый день из Тбилиси.">
+  <meta property="og:image" content="assets/img/kazbegi.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23140d11'/%3E%3Ccircle cx='42' cy='22' r='8' fill='%23f2a261'/%3E%3Cpath d='M6 52l18-26 10 13 7-8 17 21z' fill='%23f6efe6'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Unbounded:wght@300..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@500&display=swap&text=საქართველოკახეთიყაზბეგიძველითბილისიბორჯომიმცხეთა">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/hero-map.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+    <symbol id="i-coin" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L3 10.5l7 2.5 2.5 7L21 3zM10 13l5-5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="11" rx="2.5"/><path d="M3 11h18M7 19v-3M17 19v-3M8 5v6M13 5v6"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4m0 0h12l-2.5 4L17 12H5"/></symbol>
+    <symbol id="i-ticket" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8v6.5a2.5 2.5 0 0 0 5 0M12 8v6M8 17h8"/></symbol>
+    <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#tours" data-i18n="nav.tours">Туры</a>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__ka" lang="ka">საქართველო</span>
+      <span class="preloader__word">ChillOut<b>Tours</b></span>
+      <span class="preloader__bar"></span>
+    </div>
+  </div>
+
+  <span id="topSentinel" class="top-sentinel" aria-hidden="true"></span>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="ChillOutTours">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="42" cy="22" r="8" fill="#f2a261"/><path d="M4 54l19-28 10 13 8-9 19 24z" fill="#f6efe6"/><path d="M19 32l4-6 4 5-4 2z" fill="#140d11" opacity=".35"/></svg>
+      <span>ChillOut<b>Tours</b></span>
+    </a>
+    <nav class="nav" data-i18n-attr="aria-label:nav.main" aria-label="Основная навигация">
+      <a href="#map" data-i18n="nav.map">Карта</a>
+      <a href="#tours" data-i18n="nav.tours">Туры</a>
+      <a href="#how" data-i18n="nav.how">Как едем</a>
+      <a href="#book" data-i18n="nav.book">Бронь</a>
+    </nav>
+    <div class="header-actions">
+      <button class="lang-toggle" id="langToggle" type="button" data-i18n-attr="aria-label:lang.switch" aria-label="Switch to English">
+        <span data-lang-current>RU</span><span aria-hidden="true">/</span><span data-lang-next>EN</span>
+      </button>
+      <a class="btn btn--small header-phone" href="tel:+995555308785">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>+995 555 30 87 85</span>
+      </a>
+    </div>
+  </header>
+
+  <a class="btn mobile-cta" href="#book"><span data-i18n="tour.book">Забронировать</span><span class="btn__orb"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas id="heroCanvas" class="hero__canvas" aria-hidden="true"></canvas>
+      <span class="hero__ka" lang="ka" aria-hidden="true">საქართველო</span>
+      <div class="hero__content">
+        <p class="eyebrow hero__fade" data-i18n="hero.eyebrow">Туры по Грузии · Tours in Georgia</p>
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line" data-split data-i18n="hero.line1">Грузия</span>
+          <span class="hero__line hero__line--soft" data-split data-i18n="hero.line2">в режиме chill</span>
+        </h1>
+        <div class="hero__row hero__fade">
+          <p class="hero__sub" data-i18n="hero.sub">Групповые туры из Тбилиси каждый день.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#tours"><span data-i18n="hero.cta">Выбрать тур</span><span class="btn__orb"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+            <a class="btn btn--ghost" href="https://wa.me/995555308785" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="hero.cta2">Написать в WhatsApp</span></a>
+          </div>
+        </div>
+        <dl class="hero__stats hero__fade">
+          <div class="hero__stat"><dt><b>5</b></dt><dd data-i18n="hero.stat1">маршрутов</dd></div>
+          <div class="hero__stat"><dt><b>09:00</b></dt><dd data-i18n="hero.stat2">выезд</dd></div>
+          <div class="hero__stat"><dt><b>45 ₾</b></dt><dd><span data-i18n="hero.stat3">от</span></dd></div>
+          <div class="hero__stat"><dt><b>Sprinter</b></dt><dd data-i18n="hero.stat4">комфортный</dd></div>
+        </dl>
+      </div>
+      <a class="hero__scroll" href="#map"><span data-i18n="hero.scroll">Листайте</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee__track" id="marqueeTrack"></div></div>
+
+    <section class="map-section" id="map" aria-labelledby="map-title">
+      <div class="map-section__panel reveal">
+        <p class="eyebrow" data-i18n="map.eyebrow">Карта маршрутов</p>
+        <h2 class="section-title section-title--compact" id="map-title" data-i18n="map.title">Вся Грузия за пять поездок</h2>
+        <p class="section-text" data-i18n="map.text">Все туры стартуют в Тбилиси.</p>
+        <ol class="map-list" id="mapList"></ol>
+        <a class="map-open" id="mapOpen" href="#tours"><span data-i18n="map.open">Открыть тур</span>: <span id="mapActiveTitle"></span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="map-stage" id="mapStage">
+        <div class="map-labels" id="mapLabels"></div>
+        <p class="map-loading" data-i18n="map.loading">Собираем горы…</p>
+        <p class="map-hint"><svg class="icon" aria-hidden="true"><use href="#i-rotate"/></svg><span data-i18n="map.hint">Потяните карту, чтобы повернуть</span></p>
+      </div>
+    </section>
+
+    <section class="tours" id="tours" aria-labelledby="tours-title">
+      <header class="tours__intro reveal">
+        <div>
+          <p class="eyebrow eyebrow--dark" data-i18n="tours.eyebrow">Групповые туры</p>
+          <h2 class="section-title section-title--dark" id="tours-title" data-i18n="tours.title">Куда поедем</h2>
+        </div>
+        <p class="section-text section-text--dark" data-i18n="tours.text">Цены в лари за человека.</p>
+      </header>
+      <div class="tours__list" id="toursList"></div>
+    </section>
+
+    <section class="how" id="how" aria-labelledby="how-title">
+      <header class="how__head reveal">
+        <p class="eyebrow" data-i18n="how.eyebrow">Как проходит день</p>
+        <h2 class="section-title" id="how-title" data-i18n="how.title">Вы отдыхаете, мы рулим</h2>
+      </header>
+      <ol class="how__steps">
+        <li class="how-step reveal"><span class="how-step__n">01</span><h3 data-i18n="how.s1.t">Пишете нам</h3><p data-i18n="how.s1.d"></p></li>
+        <li class="how-step reveal"><span class="how-step__n">02</span><h3 data-i18n="how.s2.t">09:00 · выезд</h3><p data-i18n="how.s2.d"></p></li>
+        <li class="how-step reveal"><span class="how-step__n">03</span><h3 data-i18n="how.s3.t">Остановки и обед</h3><p data-i18n="how.s3.d"></p></li>
+        <li class="how-step reveal"><span class="how-step__n">04</span><h3 data-i18n="how.s4.t">Вечером в Тбилиси</h3><p data-i18n="how.s4.d"></p></li>
+      </ol>
+      <div class="perks">
+        <article class="perk perk--photo reveal">
+          <img src="assets/img/kazbek-view-sm.webp" srcset="assets/img/kazbek-view-sm.webp 760w, assets/img/kazbek-view.webp 1600w" sizes="(max-width: 900px) 100vw, 40vw" alt="" width="1600" height="1067" loading="lazy">
+          <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+          <div><h3 data-i18n="perk.daily.t">Каждый день</h3><p data-i18n="perk.daily.d"></p></div>
+        </article>
+        <article class="perk reveal">
+          <svg class="icon" aria-hidden="true"><use href="#i-bus"/></svg>
+          <div><h3 data-i18n="perk.car.t">Mercedes Sprinter</h3><p data-i18n="perk.car.d"></p></div>
+        </article>
+        <article class="perk reveal reveal--late">
+          <svg class="icon" aria-hidden="true"><use href="#i-flag"/></svg>
+          <div><h3 data-i18n="perk.guide.t">Профессиональные гиды</h3><p data-i18n="perk.guide.d"></p></div>
+        </article>
+        <article class="perk perk--accent perk--wide reveal">
+          <svg class="icon" aria-hidden="true"><use href="#i-ticket"/></svg>
+          <div><h3 data-i18n="perk.price.t">Цены без сюрпризов</h3><p data-i18n="perk.price.d"></p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="book" id="book" aria-labelledby="book-title">
+      <div class="book__bg" aria-hidden="true">
+        <img src="assets/img/tbilisi-dusk.webp" alt="" width="1600" height="1605" loading="lazy">
+      </div>
+      <div class="book__intro reveal">
+        <p class="eyebrow" data-i18n="book.eyebrow">Бронирование</p>
+        <h2 class="section-title" id="book-title" data-i18n="book.title">Займите место в Sprinter</h2>
+        <p class="section-text" data-i18n="book.text"></p>
+        <p class="book__call" data-i18n="book.call">Или позвоните</p>
+        <a class="book__phone" href="tel:+995555308785">+995 555 30 87 85</a>
+        <div class="book__messengers">
+          <a class="btn btn--ghost" href="https://wa.me/995555308785" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp</a>
+          <a class="btn btn--ghost" href="viber://chat?number=%2B995555308785"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Viber</a>
+          <a class="btn btn--ghost" href="https://t.me/+995555308785" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>Telegram</a>
+        </div>
+      </div>
+
+      <form class="book-form reveal reveal--late" id="bookForm" novalidate>
+        <div class="field field--full">
+          <label for="fTour" data-i18n="form.tour">Тур</label>
+          <select class="input" id="fTour" name="tour" required></select>
+          <p class="field__error" data-error-for="tour" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="fDate" data-i18n="form.date">Дата</label>
+          <input class="input" id="fDate" name="date" type="date" required>
+          <p class="field__error" data-error-for="date" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="fPeople" data-i18n="form.people">Сколько человек</label>
+          <div class="stepper">
+            <button type="button" data-step="-1" data-i18n-attr="aria-label:form.minus" aria-label="Меньше">−</button>
+            <input class="input" id="fPeople" name="people" type="number" inputmode="numeric" min="1" max="18" value="2" required>
+            <button type="button" data-step="1" data-i18n-attr="aria-label:form.plus" aria-label="Больше">+</button>
+          </div>
+          <p class="field__error" data-error-for="people" aria-live="polite"></p>
+        </div>
+        <div class="field field--full">
+          <label for="fName" data-i18n="form.name">Ваше имя</label>
+          <input class="input" id="fName" name="name" type="text" autocomplete="given-name" maxlength="60" required data-i18n-attr="placeholder:form.namePh" placeholder="Например, Анна">
+          <p class="field__error" data-error-for="name" aria-live="polite"></p>
+        </div>
+        <fieldset class="via">
+          <legend data-i18n="form.via">Куда написать</legend>
+          <div class="via__options">
+            <label class="via__option"><input type="radio" name="via" value="whatsapp" checked><span>WhatsApp</span></label>
+            <label class="via__option"><input type="radio" name="via" value="viber"><span>Viber</span></label>
+            <label class="via__option"><input type="radio" name="via" value="telegram"><span>Telegram</span></label>
+          </div>
+        </fieldset>
+        <button class="btn" type="submit"><span data-i18n="form.submit">Отправить заявку</span><span class="btn__orb"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__word" aria-hidden="true">ChillOutTours</p>
+    <div class="footer__row">
+      <div>
+        <p class="footer__brand">ChillOut<b>Tours</b></p>
+        <p class="footer__tag" data-i18n="footer.tag">Групповые туры по Грузии из Тбилиси</p>
+      </div>
+      <a class="footer__phone" href="tel:+995555308785"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>+995 555 30 87 85</a>
+    </div>
+    <details class="credits">
+      <summary data-i18n="footer.credits">Фото: Wikimedia Commons, авторы и лицензии</summary>
+      <ul id="creditsList"></ul>
+    </details>
+    <p class="footer__copy">© 2026 ChillOutTours · <span data-i18n="footer.rights">Все туры из Тбилиси</span></p>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lbTitle">
+    <div class="lightbox__top">
+      <p class="lightbox__title" id="lbTitle" data-lb-title></p>
+      <button class="icon-btn" type="button" data-lb-close aria-label="Закрыть"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <figure class="lightbox__figure">
+      <img data-lb-img alt="">
+    </figure>
+    <div class="lightbox__bottom">
+      <button class="icon-btn" type="button" data-lb-prev data-i18n-attr="aria-label:lightbox.prev" aria-label="Предыдущее фото"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button>
+      <p class="lightbox__cap"><span data-lb-cap></span> · <span data-lb-count></span></p>
+      <button class="icon-btn" type="button" data-lb-next data-i18n-attr="aria-label:lightbox.next" aria-label="Следующее фото"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button>
+    </div>
+  </dialog>
+</body>
+</html>

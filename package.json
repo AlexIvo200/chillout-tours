@@ -1,0 +1,9 @@
+{
+  "name": "chillout-tours",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 8813",
+    "test": "node --test tests/core.test.mjs"
+  }
+}
