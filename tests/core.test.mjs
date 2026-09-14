@@ -10,6 +10,8 @@ import {
 } from '../js/booking-core.js';
 import { pointInPolygon, clusterStops, project, unproject, distanceToPolyline } from '../js/geo.js';
 import { GEORGIA_RING } from '../js/georgia-shape.js';
+import { TOURS, TBILISI, stopForPhoto } from '../js/tours-data.js';
+import { existsSync } from 'node:fs';
 
 const IDS = ['kakheti', 'kazbegi'];
 const TODAY = '2026-09-12';
@@ -94,4 +96,21 @@ test('clusterStops merges nearby stops and keeps order', () => {
 
 test('distanceToPolyline is zero on the line', () => {
   assert.ok(distanceToPolyline(43, 42, [[42, 42], [44, 42]]) < 1e-9);
+});
+
+test('every map stop has a bilingual description without em dashes and an existing photo', () => {
+  const stops = [TBILISI, ...TOURS.flatMap((tour) => tour.stops)];
+  stops.forEach((stop) => {
+    const label = stop.name.ru;
+    assert.ok(stop.about?.ru?.length > 40 && stop.about?.en?.length > 40, `description: ${label}`);
+    assert.doesNotMatch(stop.about.ru + stop.about.en, /—/, `em dash: ${label}`);
+    assert.ok(existsSync(new URL(`../assets/img/${stop.photo}.webp`, import.meta.url)), `photo: ${label} (${stop.photo})`);
+    assert.ok(existsSync(new URL(`../assets/img/${stop.photo}-sm.webp`, import.meta.url)), `small photo: ${label} (${stop.photo})`);
+  });
+});
+
+test('stopForPhoto links a gallery photo to its stop and returns null otherwise', () => {
+  const kazbegi = TOURS.find((tour) => tour.id === 'kazbegi');
+  assert.equal(stopForPhoto(kazbegi, 'ananuri').name.en, 'Ananuri Fortress');
+  assert.equal(stopForPhoto(kazbegi, 'kazbek-view'), null);
 });

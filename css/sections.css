@@ -271,8 +271,9 @@ select.input {
 .lightbox::backdrop { background: rgba(0, 0, 0, .6); }
 .lightbox__top, .lightbox__bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem var(--space-gutter); }
 .lightbox__title { margin: 0; font-family: var(--font-display); font-size: 1.1rem; letter-spacing: -.03em; }
-.lightbox__figure { display: grid; place-items: center; min-height: 0; margin: 0; padding: 0 var(--space-gutter); }
-.lightbox__figure img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 14px; }
+.lightbox__figure { position: relative; min-height: 0; margin: 0; }
+/* Абсолютное позиционирование даёт процентам max-height опору: иначе фото вылезает под нижнюю панель */
+.lightbox__figure img { position: absolute; inset: 0; margin: auto; max-width: calc(100% - 2 * var(--space-gutter)); max-height: 100%; object-fit: contain; border-radius: 14px; }
 .lightbox__cap { margin: 0; text-align: center; color: var(--text-light-soft); }
 .icon-btn {
   display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; cursor: pointer;
@@ -280,3 +281,7 @@ select.input {
   transition: background-color var(--duration-fast), transform var(--duration-normal) var(--ease-out-expo);
 }
 .icon-btn:hover { background: rgba(255, 255, 255, .16); transform: scale(1.06); }
+
+/* Справка о месте под подписью фото */
+.lightbox__text { display: grid; gap: .35rem; justify-items: center; max-width: 62ch; }
+.lightbox__about { margin: 0; text-align: center; font-size: .92rem; line-height: 1.45; color: rgba(255, 244, 232, .82); text-wrap: pretty; }

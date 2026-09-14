@@ -2,7 +2,13 @@
 export const PHONE_DISPLAY = '+995 555 30 87 85';
 export const PHONE_E164 = '995555308785';
 
-export const TBILISI = { lat: 41.7151, lon: 44.8271, name: { ru: 'Тбилиси', en: 'Tbilisi' } };
+export const TBILISI = {
+  lat: 41.7151,
+  lon: 44.8271,
+  name: { ru: 'Тбилиси', en: 'Tbilisi' },
+  photo: 'tbilisi-dusk',
+  about: { ru: 'Столица Грузии и точка старта всех туров. После загородных поездок вечером привозим вас обратно в город.', en: 'Georgia’s capital and the starting point for every tour. After the day trips we bring you back to the city in the evening.' },
+};
 
 export const TOURS = [
   {
@@ -26,13 +32,20 @@ export const TOURS = [
       { k: { ru: 'Завершение', en: 'Back by' }, v: { ru: 'до 21:00', en: '21:00' } },
     ],
     stops: [
-      { lat: 41.6186, lon: 45.9217, name: { ru: 'Сигнаги, город любви', en: 'Sighnaghi, the City of Love' } },
-      { lat: 41.6236, lon: 45.9260, name: { ru: 'Крепостная стена Сигнаги', en: 'Sighnaghi fortress wall' } },
-      { lat: 41.6067, lon: 45.9336, name: { ru: 'Бодбийский монастырь святой Нино', en: 'Bodbe Monastery of St. Nino' } },
-      { lat: 41.7700, lon: 45.6500, name: { ru: 'Алазанская долина', en: 'Alazani Valley' } },
-      { lat: 41.9198, lon: 45.4731, name: { ru: 'Город Телави', en: 'Telavi' } },
-      { lat: 41.9198, lon: 45.4731, name: { ru: 'Винная дегустация', en: 'Wine tasting' } },
-      { lat: 41.9198, lon: 45.4731, name: { ru: 'Мастер-класс по выпечке хлеба', en: 'Bread baking master class' } },
+      { lat: 41.6186, lon: 45.9217, name: { ru: 'Сигнаги, город любви', en: 'Sighnaghi, the City of Love' }, photo: 'sighnaghi',
+        about: { ru: 'Городок на холме над Алазанской долиной: черепичные крыши, мощёные улочки и ЗАГС, где можно расписаться в любое время суток.', en: 'A hilltop town above the Alazani Valley: tiled roofs, cobbled lanes and a wedding hall where couples can marry at any hour.' } },
+      { lat: 41.6236, lon: 45.9260, name: { ru: 'Крепостная стена Сигнаги', en: 'Sighnaghi fortress wall' }, photo: 'sighnaghi-walls',
+        about: { ru: 'Стену с 23 башнями построили при царе Ираклии II в XVIII веке. По ней можно пройтись и увидеть долину и Кавказский хребет.', en: 'Built under King Erekle II in the 18th century, the wall has 23 towers. Walk along it for views over the valley to the Caucasus.' } },
+      { lat: 41.6067, lon: 45.9336, name: { ru: 'Бодбийский монастырь святой Нино', en: 'Bodbe Monastery of St. Nino' }, photo: 'bodbe',
+        about: { ru: 'Женский монастырь, где похоронена святая Нина, крестительница Грузии. Ниже по склону бьёт её святой источник.', en: 'The convent where St. Nino, who brought Christianity to Georgia, is buried. Her holy spring flows further down the hillside.' } },
+      { lat: 41.7700, lon: 45.6500, name: { ru: 'Алазанская долина', en: 'Alazani Valley' }, photo: 'alazani-river',
+        about: { ru: 'Широкая долина между Кавказом и Гомборским хребтом. Здесь растёт виноград для Цинандали, Мукузани и Киндзмараули.', en: 'A broad valley between the Caucasus and the Gombori Range, where the grapes for Tsinandali, Mukuzani and Kindzmarauli grow.' } },
+      { lat: 41.9198, lon: 45.4731, name: { ru: 'Город Телави', en: 'Telavi' }, photo: 'telavi',
+        about: { ru: 'Главный город Кахетии: крепость Батонисцихе с дворцом царя Ираклия II и огромный платан, которому около 900 лет.', en: 'The capital of Kakheti: Batonis Tsikhe fortress with King Erekle II’s palace and a giant plane tree around 900 years old.' } },
+      { lat: 41.9198, lon: 45.4731, name: { ru: 'Винная дегустация', en: 'Wine tasting' }, photo: 'kakheti-rainbow',
+        about: { ru: 'Пробуем вина из квеври, глиняных кувшинов, которые закапывают в землю. Этот древний способ виноделия внесён в список ЮНЕСКО.', en: 'We taste wine made in qvevri, clay jars buried in the ground. This ancient winemaking method is on the UNESCO heritage list.' } },
+      { lat: 41.9198, lon: 45.4731, name: { ru: 'Мастер-класс по выпечке хлеба', en: 'Bread baking master class' }, photo: 'tone-bread',
+        about: { ru: 'Печём шоти, грузинский хлеб в форме лодочки. Тесто прилепляют к стенкам тоне, круглой глиняной печи, и достают горячим.', en: 'We bake shoti, canoe-shaped Georgian bread. The dough is pressed onto the walls of a tone, a round clay oven, and pulled out hot.' } },
     ],
     included: [
       { ru: 'Транспорт', en: 'Transport' },
@@ -72,13 +85,20 @@ export const TOURS = [
       { k: { ru: 'Высота', en: 'Altitude' }, v: { ru: '2170 м', en: '2170 m' } },
     ],
     stops: [
-      { lat: 42.1350, lon: 44.7700, name: { ru: 'Жинвальское водохранилище', en: 'Zhinvali Reservoir' } },
-      { lat: 42.1640, lon: 44.7031, name: { ru: 'Крепость Ананури', en: 'Ananuri Fortress' } },
-      { lat: 42.3500, lon: 44.6900, name: { ru: 'Пасанаури', en: 'Pasanauri' } },
-      { lat: 42.4958, lon: 44.4706, name: { ru: 'Арка дружбы', en: 'Friendship Arch' } },
-      { lat: 42.4600, lon: 44.4800, name: { ru: 'Гудаури', en: 'Gudauri' } },
-      { lat: 42.6566, lon: 44.6433, name: { ru: 'Степанцминда', en: 'Stepantsminda' } },
-      { lat: 42.6621, lon: 44.6203, name: { ru: 'Троицкая церковь Гергети', en: 'Gergeti Trinity Church' } },
+      { lat: 42.1350, lon: 44.7700, name: { ru: 'Жинвальское водохранилище', en: 'Zhinvali Reservoir' }, photo: 'zhinvali',
+        about: { ru: 'Бирюзовое водохранилище на реке Арагви в кольце гор. Отсюда Тбилиси получает питьевую воду.', en: 'A turquoise reservoir on the Aragvi River ringed by mountains. It supplies Tbilisi with drinking water.' } },
+      { lat: 42.1640, lon: 44.7031, name: { ru: 'Крепость Ананури', en: 'Ananuri Fortress' }, photo: 'ananuri',
+        about: { ru: 'Крепость XVII века на берегу Жинвали, бывшая резиденция арагвских эриставов. Внутри стен стоят два храма с резными фасадами.', en: 'A 17th-century fortress on the Zhinvali shore, once the seat of the Dukes of Aragvi. Two churches with carved facades stand inside its walls.' } },
+      { lat: 42.3500, lon: 44.6900, name: { ru: 'Пасанаури', en: 'Pasanauri' }, photo: 'khinkali',
+        about: { ru: 'Посёлок у слияния Белой и Чёрной Арагви. Его называют родиной хинкали.', en: 'A village where the White and Black Aragvi meet, said to be the birthplace of khinkali.' } },
+      { lat: 42.4958, lon: 44.4706, name: { ru: 'Арка дружбы', en: 'Friendship Arch' }, photo: 'friendship-arch',
+        about: { ru: 'Мозаичная панорама 1983 года над обрывом Чёртовой долины на высоте около 2400 м. Одна из самых фотогеничных точек дороги.', en: 'A 1983 mosaic panorama above the Devil’s Valley at about 2,400 m, one of the most photogenic spots on the road.' } },
+      { lat: 42.4600, lon: 44.4800, name: { ru: 'Гудаури', en: 'Gudauri' }, photo: 'gudauri',
+        about: { ru: 'Горнолыжный курорт на высоте около 2200 м. Зимой здесь катаются на лыжах, летом летают на параплане над ущельем.', en: 'A ski resort at about 2,200 m. Skiing in winter, paragliding over the gorge in summer.' } },
+      { lat: 42.6566, lon: 44.6433, name: { ru: 'Степанцминда', en: 'Stepantsminda' }, photo: 'stepantsminda',
+        about: { ru: 'Посёлок у подножия Казбека, раньше назывался Казбеги. Отсюда начинается подъём к Троицкой церкви.', en: 'The village at the foot of Mt Kazbek, formerly called Kazbegi. The ascent to Trinity Church starts here.' } },
+      { lat: 42.6621, lon: 44.6203, name: { ru: 'Троицкая церковь Гергети', en: 'Gergeti Trinity Church' }, photo: 'kazbegi',
+        about: { ru: 'Церковь XIV века на высоте 2170 м. В ясный день за ней встают ледники Казбека: один из самых известных видов Грузии.', en: 'A 14th-century church at 2,170 m. On a clear day Kazbek’s glaciers rise behind it, one of Georgia’s most famous views.' } },
     ],
     included: [
       { ru: 'Комфортабельный Mercedes Sprinter', en: 'Comfortable Mercedes Sprinter' },
@@ -118,12 +138,18 @@ export const TOURS = [
       { k: { ru: 'Гид', en: 'Guide' }, v: { ru: 'включён', en: 'included' } },
     ],
     stops: [
-      { lat: 41.6880, lon: 44.8110, name: { ru: 'Серные бани', en: 'Sulphur baths' } },
-      { lat: 41.6886, lon: 44.8090, name: { ru: 'Площадь Мейдан', en: 'Meidan Square' } },
-      { lat: 41.6903, lon: 44.8121, name: { ru: 'Храм Метехи', en: 'Metekhi Church' } },
-      { lat: 41.6912, lon: 44.8072, name: { ru: 'Винные дегустации', en: 'Wine tasting' } },
-      { lat: 41.6931, lon: 44.8083, name: { ru: 'Мост Мира', en: 'Bridge of Peace' } },
-      { lat: 41.6925, lon: 44.8118, name: { ru: 'Парк Рике', en: 'Rike Park' } },
+      { lat: 41.6880, lon: 44.8110, name: { ru: 'Серные бани', en: 'Sulphur baths' }, photo: 'abanotubani',
+        about: { ru: 'Кирпичные купола Абанотубани над горячими серными источниками. По легенде, Тбилиси основали именно здесь из-за тёплой воды.', en: 'The brick domes of Abanotubani sit over hot sulphur springs. Legend says Tbilisi was founded here because of the warm water.' } },
+      { lat: 41.6886, lon: 44.8090, name: { ru: 'Площадь Мейдан', en: 'Meidan Square' }, photo: 'meidan',
+        about: { ru: 'Старая торговая площадь, где когда-то сходились караванные пути. Отсюда хорошо видна крепость Нарикала.', en: 'The old market square where caravan routes once met, with a great view up to Narikala fortress.' } },
+      { lat: 41.6903, lon: 44.8121, name: { ru: 'Храм Метехи', en: 'Metekhi Church' }, photo: 'metekhi',
+        about: { ru: 'Храм XIII века на скале над Курой. Рядом конная статуя царя Вахтанга Горгасали, основателя Тбилиси.', en: 'A 13th-century church on a cliff above the Kura, next to the equestrian statue of King Vakhtang Gorgasali, founder of Tbilisi.' } },
+      { lat: 41.6912, lon: 44.8072, name: { ru: 'Винные дегустации', en: 'Wine tasting' }, photo: 'tbilisi-old',
+        about: { ru: 'Заходим в винный погребок старого города и пробуем саперави, ркацители и вина из квеври.', en: 'We step into an Old Town wine cellar to taste Saperavi, Rkatsiteli and qvevri wines.' } },
+      { lat: 41.6931, lon: 44.8083, name: { ru: 'Мост Мира', en: 'Bridge of Peace' }, photo: 'peace-bridge',
+        about: { ru: 'Пешеходный мост из стекла и стали, открытый в 2010 году. Вечером на нём загораются тысячи светодиодов.', en: 'A glass-and-steel footbridge opened in 2010. At night thousands of LEDs light it up.' } },
+      { lat: 41.6925, lon: 44.8118, name: { ru: 'Парк Рике', en: 'Rike Park' }, photo: 'rike-park',
+        about: { ru: 'Парк на левом берегу Куры с фонтанами и гигантскими шахматами. Отсюда канатная дорога поднимается к Нарикале.', en: 'A park on the left bank of the Kura with fountains and giant chess boards. The cable car to Narikala leaves from here.' } },
     ],
     included: [
       { ru: 'Услуги профессионального гида', en: 'Professional guide' },
@@ -161,12 +187,18 @@ export const TOURS = [
       { k: { ru: 'Транспорт', en: 'Vehicle' }, v: { ru: 'Mercedes Sprinter', en: 'Mercedes Sprinter' } },
     ],
     stops: [
-      { lat: 41.8421, lon: 43.3897, short: { ru: 'Боржоми', en: 'Borjomi' }, name: { ru: 'Источники Екатерины и Евгения Головиных', en: 'Ekaterina & Evgeny Golovin springs' } },
-      { lat: 41.8395, lon: 43.3930, name: { ru: 'Резиденция Мирзы Риза-хана', en: 'Summer residence of Mirza Riza Khan' } },
-      { lat: 41.8440, lon: 43.3850, name: { ru: 'Памятник Амирану, грузинскому Прометею', en: 'Amirani, the Georgian Prometheus' } },
-      { lat: 41.3811, lon: 43.2842, short: { ru: 'Вардзия', en: 'Vardzia' }, name: { ru: 'Пещерный монастырь Вардзия XII века', en: '12th-century Vardzia cave monastery' } },
-      { lat: 41.3820, lon: 43.2850, name: { ru: 'Фрески царицы Тамары и Георгия III', en: 'Frescoes of Queen Tamar and George III' } },
-      { lat: 41.6425, lon: 42.9819, name: { ru: 'Крепость Рабат', en: 'Rabati Fortress' } },
+      { lat: 41.8421, lon: 43.3897, short: { ru: 'Боржоми', en: 'Borjomi' }, name: { ru: 'Источники Екатерины и Евгения Головиных', en: 'Ekaterina & Evgeny Golovin springs' }, photo: 'borjomi-spring',
+        about: { ru: 'Родина знаменитой минеральной воды. Источник назван в честь дочери наместника Головина, которая, по преданию, вылечилась здесь в 1840-х.', en: 'Home of the famous mineral water. The spring is named after Governor Golovin’s daughter, who is said to have been cured here in the 1840s.' } },
+      { lat: 41.8395, lon: 43.3930, name: { ru: 'Резиденция Мирзы Риза-хана', en: 'Summer residence of Mirza Riza Khan' }, photo: 'firuza',
+        about: { ru: 'Дворец «Фируза» конца XIX века с голубым резным балконом. Его построил персидский консул Мирза Риза-хан.', en: 'Firuza, a late 19th-century palace with a carved blue balcony, built by the Persian consul Mirza Riza Khan.' } },
+      { lat: 41.8440, lon: 43.3850, name: { ru: 'Памятник Амирану, грузинскому Прометею', en: 'Amirani, the Georgian Prometheus' }, photo: 'borjomi-park',
+        about: { ru: 'Амирани, герой грузинского эпоса, бросил вызов богам и был прикован к скале в горах Кавказа. Его памятник стоит в Боржоми.', en: 'Amirani, hero of Georgian legend, defied the gods and was chained to a Caucasus cliff. His monument stands in Borjomi.' } },
+      { lat: 41.3811, lon: 43.2842, short: { ru: 'Вардзия', en: 'Vardzia' }, name: { ru: 'Пещерный монастырь Вардзия XII века', en: '12th-century Vardzia cave monastery' }, photo: 'vardzia',
+        about: { ru: 'Пещерный город XII века, высеченный в скале на 13 ярусах. При царице Тамаре здесь были кельи, храмы, винные погреба и библиотека.', en: 'A 12th-century cave city carved into the cliff on 13 levels. Under Queen Tamar it held cells, churches, wine cellars and a library.' } },
+      { lat: 41.3820, lon: 43.2850, name: { ru: 'Фрески царицы Тамары и Георгия III', en: 'Frescoes of Queen Tamar and George III' }, photo: 'vardzia-fresco',
+        about: { ru: 'В храме Успения сохранились редкие прижизненные портреты царицы Тамары и её отца, царя Георгия III.', en: 'The Church of the Dormition keeps rare lifetime portraits of Queen Tamar and her father, King George III.' } },
+      { lat: 41.6425, lon: 42.9819, name: { ru: 'Крепость Рабат', en: 'Rabati Fortress' }, photo: 'rabati',
+        about: { ru: 'Средневековая крепость на холме над Ахалцхи. Внизу старый квартал, где в нескольких шагах друг от друга стоят церковь, мечеть и синагога.', en: 'A medieval fortress on a hill above Akhaltsikhe. Below lies the old quarter, where a church, a mosque and a synagogue stand a few steps apart.' } },
     ],
     included: [
       { ru: 'Трансфер на Mercedes-Benz Sprinter', en: 'Mercedes-Benz Sprinter transfer' },
@@ -208,12 +240,18 @@ export const TOURS = [
       { k: { ru: 'Эпохи', en: 'Eras' }, v: { ru: '3000 лет истории', en: '3000 years' } },
     ],
     stops: [
-      { lat: 41.8425, lon: 44.7206, name: { ru: 'Мцхета, первая столица Грузии', en: 'Mtskheta, the first capital' } },
-      { lat: 41.8420, lon: 44.7210, name: { ru: 'Светицховели, где покоится Хитон Христа', en: 'Svetitskhoveli, resting place of Christ’s Robe' } },
-      { lat: 41.8383, lon: 44.7336, name: { ru: 'Монастырь Джвари', en: 'Jvari Monastery' } },
-      { lat: 41.8400, lon: 44.7300, name: { ru: 'Слияние Арагви и Куры', en: 'Confluence of the Aragvi and Kura' } },
-      { lat: 41.9842, lon: 44.1158, name: { ru: 'Гори, музей Сталина', en: 'Gori, Stalin Museum' } },
-      { lat: 41.9672, lon: 44.2083, name: { ru: 'Уплисцихе, древнейший пещерный город', en: 'Uplistsikhe, the ancient cave city' } },
+      { lat: 41.8425, lon: 44.7206, name: { ru: 'Мцхета, первая столица Грузии', en: 'Mtskheta, the first capital' }, photo: 'mtskheta',
+        about: { ru: 'Древняя столица Грузии и её духовный центр. Исторические храмы города внесены в список всемирного наследия ЮНЕСКО.', en: 'Georgia’s ancient capital and spiritual heart. Its historic churches are a UNESCO World Heritage Site.' } },
+      { lat: 41.8420, lon: 44.7210, name: { ru: 'Светицховели, где покоится Хитон Христа', en: 'Svetitskhoveli, resting place of Christ’s Robe' }, photo: 'svetitskhoveli',
+        about: { ru: 'Собор XI века, главный храм страны. По преданию, под ним покоится хитон Христа, привезённый из Иерусалима.', en: 'The 11th-century cathedral, the country’s principal church. Tradition holds that Christ’s robe, brought from Jerusalem, lies beneath it.' } },
+      { lat: 41.8383, lon: 44.7336, name: { ru: 'Монастырь Джвари', en: 'Jvari Monastery' }, photo: 'jvari',
+        about: { ru: 'Храм VI века на горе над Мцхетой. Именно его описал Лермонтов в поэме «Мцыри».', en: 'A 6th-century church on the hill above Mtskheta, the one Lermontov described in his poem Mtsyri.' } },
+      { lat: 41.8400, lon: 44.7300, name: { ru: 'Слияние Арагви и Куры', en: 'Confluence of the Aragvi and Kura' }, photo: 'jvari-2',
+        about: { ru: 'С площадки у Джвари видно, как прозрачная Арагви и мутная Кура сливаются в одну реку.', en: 'From the terrace at Jvari you can watch the clear Aragvi and the muddy Kura merge into one river.' } },
+      { lat: 41.9842, lon: 44.1158, name: { ru: 'Гори, музей Сталина', en: 'Gori, Stalin Museum' }, photo: 'stalin-museum',
+        about: { ru: 'Родной город Сталина. В музее хранятся его личные вещи, домик, где он родился, и бронированный вагон.', en: 'Stalin’s hometown. The museum keeps his belongings, the small house where he was born and his armoured railway carriage.' } },
+      { lat: 41.9672, lon: 44.2083, name: { ru: 'Уплисцихе, древнейший пещерный город', en: 'Uplistsikhe, the ancient cave city' }, photo: 'uplistsikhe',
+        about: { ru: 'Один из древнейших городов Грузии, высеченный в скале около 3000 лет назад. Когда-то он стоял на Великом шёлковом пути.', en: 'One of Georgia’s oldest towns, carved into the rock about 3,000 years ago and once a stop on the Silk Road.' } },
     ],
     included: [
       { ru: 'Транспорт', en: 'Transport' },
@@ -234,3 +272,6 @@ export const TOURS = [
     ],
   },
 ];
+
+/** Остановка, к которой относится фото тура: её справка показывается в лайтбоксе. */
+export const stopForPhoto = (tour, src) => tour.stops.find((stop) => stop.photo === src) ?? null;

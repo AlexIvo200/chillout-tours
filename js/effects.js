@@ -1,6 +1,7 @@
 // Появление блоков при скролле, 3D-наклон галерей, лайтбокс, разбивка заголовка на буквы.
 import { t, pick } from './i18n.js';
 import { photoUrl } from './dom.js';
+import { stopForPhoto } from './tours-data.js';
 
 const TILT_MAX_DEG = 7;
 
@@ -71,6 +72,8 @@ export function initLightbox(dialog) {
   const img = dialog.querySelector('[data-lb-img]');
   const caption = dialog.querySelector('[data-lb-cap]');
   const counter = dialog.querySelector('[data-lb-count]');
+  const about = dialog.querySelector('[data-lb-about]');
+  let currentTour = null;
   let photos = [];
   let index = 0;
 
@@ -81,6 +84,9 @@ export function initLightbox(dialog) {
     img.alt = pick(photo.cap);
     caption.textContent = pick(photo.cap);
     counter.textContent = `${index + 1} / ${photos.length}`;
+    const stop = currentTour && stopForPhoto(currentTour, photo.src);
+    about.textContent = stop ? pick(stop.about) : '';
+    about.hidden = !stop;
   };
 
   dialog.querySelector('[data-lb-prev]').addEventListener('click', () => show(index - 1));
@@ -96,6 +102,7 @@ export function initLightbox(dialog) {
 
   return {
     open(tour, startIndex = 0) {
+      currentTour = tour;
       photos = tour.photos;
       dialog.querySelector('[data-lb-title]').textContent = pick(tour.title);
       show(startIndex);

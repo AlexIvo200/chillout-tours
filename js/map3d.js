@@ -6,6 +6,7 @@ import { TOURS, TBILISI } from './tours-data.js';
 import { pick, t } from './i18n.js';
 import { project, unproject, pointInPolygon, clusterStops, distanceToPolyline, geoDistance } from './geo.js';
 import { createNoise2D, fbm } from './noise.js';
+import { createMapCard } from './map-card.js';
 
 const HEX_STEP = 0.4;
 const HEX_RADIUS = 0.215;
@@ -18,6 +19,8 @@ const NEAR_TBILISI = 0.07;
 const CITY_LOOP_RADIUS = 0.9;
 const CAMERA_EASE = 3; // скорость доводки камеры, не зависит от FPS
 const ROUND_TRIPS = new Set(['kakheti', 'borjomi', 'mtskheta']);
+const CITY_TOUR_ID = 'old-tbilisi';
+const CITY_COLOR = '#f2a261';
 
 const MAIN_RIDGE = [[40.0, 43.45], [41.5, 43.2], [42.7, 42.95], [43.6, 42.78], [44.5, 42.66], [45.3, 42.42], [46.1, 41.98], [46.7, 41.8]];
 const LESSER_RIDGE = [[41.8, 41.62], [42.8, 41.55], [43.6, 41.42], [44.4, 41.22], [45.0, 41.12]];
@@ -248,12 +251,44 @@ function buildTbilisiBeacon() {
   return { group, ring, top: new THREE.Vector3(p.x, y + 1.2, p.z) };
 }
 
-function createLabel(container, className) {
-  const el = document.createElement('div');
-  el.className = `map-label ${className}`;
-  el.setAttribute('aria-hidden', 'true');
+function createLabel(container, className, interactive = false) {
+  const el = document.createElement(interactive ? 'button' : 'div');
+  el.className = `map-label ${className}${interactive ? ' map-label--interactive' : ''}`;
+  if (interactive) {
+    el.type = 'button';
+    el.tabIndex = -1;
+    el.setAttribute('aria-expanded', 'false');
+    el.setAttribute('aria-controls', 'mapCard');
+  } else {
+    el.setAttribute('aria-hidden', 'true');
+  }
   container.append(el);
   return el;
+}
+
+/** Мышь: карточка по наведению. Тач: по тапу, повторный тап закрывает. Клавиатура: по фокусу, стрелки листают. */
+function bindCardTrigger(item, card) {
+  const { el } = item;
+  let pointerType = null;
+  el.addEventListener('pointerdown', (event) => { pointerType = event.pointerType; });
+  el.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') card.open(item); });
+  el.addEventListener('pointerleave', (event) => { if (event.pointerType === 'mouse') card.scheduleClose(); });
+  el.addEventListener('focus', () => { if (!pointerType || pointerType === 'mouse') card.open(item); });
+  el.addEventListener('blur', (event) => { if (!card.contains(event.relatedTarget)) card.scheduleClose(); });
+  el.addEventListener('click', () => {
+    const isTouch = pointerType && pointerType !== 'mouse';
+    pointerType = null;
+    if (!isTouch) return;
+    if (card.isOpenFor(item)) card.close();
+    else card.open(item);
+  });
+  el.addEventListener('keydown', (event) => {
+    const steps = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+    if (event.key === 'Escape') card.close();
+    if (!(event.key in steps)) return;
+    event.preventDefault();
+    card.step(steps[event.key]);
+  });
 }
 
 /**
@@ -310,18 +345,42 @@ export function initMap({ stage, labels, reducedMotion = false }) {
   const offset = new THREE.Vector3();
   const projected = new THREE.Vector3();
 
+  const card = createMapCard(stage);
+  const cityTour = TOURS.find((tour) => tour.id === CITY_TOUR_ID);
+  const isCityActive = () => activeId === CITY_TOUR_ID;
+
   const labelItems = [
-    { el: createLabel(labels, 'map-label--city'), pos: beacon.top, text: () => pick(TBILISI.name), always: true },
+    {
+      el: createLabel(labels, 'map-label--city', true),
+      pos: beacon.top,
+      text: () => pick(TBILISI.name),
+      always: true,
+      card: {
+        stops: () => (isCityActive() ? cityTour.stops : [TBILISI]),
+        kicker: () => (isCityActive() ? pick(cityTour.title) : t('map.start')),
+        color: () => (isCityActive() ? cityTour.color : CITY_COLOR),
+      },
+    },
     { el: createLabel(labels, 'map-label--muted'), pos: (() => { const p = project(40.75, 42.35); return new THREE.Vector3(p.x, 0, p.z); })(), text: () => t('map.sea'), always: true },
     { el: createLabel(labels, 'map-label--muted'), pos: (() => { const p = project(44.52, 42.7); return new THREE.Vector3(p.x, surfaceY(44.52, 42.7) + 0.6, p.z); })(), text: () => t('map.kazbek'), always: true, hideFor: 'kazbegi' },
     ...routes.flatMap((r) => r.anchors.map(({ cluster, position }, index) => {
-      const el = createLabel(labels, `map-label--stop ${index % 2 ? 'map-label--left' : 'map-label--right'}`);
+      const el = createLabel(labels, `map-label--stop ${index % 2 ? 'map-label--left' : 'map-label--right'}`, true);
       el.style.setProperty('--tour', r.tour.color);
       const stop = cluster.anchor;
-      return { el, pos: position, text: () => pick(stop.short) || pick(stop.name).split(',')[0], tourId: r.id };
+      return {
+        el,
+        pos: position,
+        text: () => pick(stop.short) || pick(stop.name).split(',')[0],
+        tourId: r.id,
+        card: { stops: () => cluster.members, kicker: () => pick(r.tour.title), color: () => r.tour.color },
+      };
     })),
   ];
-  const refreshLabelText = () => labelItems.forEach((l) => { l.el.textContent = l.text(); });
+  labelItems.filter((l) => l.card).forEach((l) => bindCardTrigger(l, card));
+  const refreshLabelText = () => {
+    labelItems.forEach((l) => { l.el.textContent = l.text(); });
+    card.refresh();
+  };
   refreshLabelText();
 
   let activeId = null;
@@ -343,7 +402,12 @@ export function initMap({ stage, labels, reducedMotion = false }) {
       r.targetOpacity = r.id === id ? 1 : DIM_OPACITY;
       if (r.id === id) r.material.uniforms.uProgress.value = reducedMotion ? 1 : 0;
     });
-    labelItems.forEach((l) => l.el.classList.toggle('is-on', (l.always && l.hideFor !== id) || l.tourId === id));
+    labelItems.forEach((l) => {
+      const isOn = (l.always && l.hideFor !== id) || l.tourId === id;
+      l.el.classList.toggle('is-on', isOn);
+      if (l.card) l.el.tabIndex = isOn ? 0 : -1;
+    });
+    card.close();
 
     const box = new THREE.Box3().setFromPoints([beacon.top, ...route.curve.getSpacedPoints(40)]);
     const center = box.getCenter(new THREE.Vector3());
@@ -418,6 +482,7 @@ export function initMap({ stage, labels, reducedMotion = false }) {
 
     renderer.render(scene, camera);
     updateLabels();
+    card.follow();
   };
 
   let running = false;

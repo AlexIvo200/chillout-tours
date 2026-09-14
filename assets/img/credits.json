@@ -178,5 +178,47 @@
   "author": "falco",
   "license": "CC0",
   "source": "https://commons.wikimedia.org/wiki/File:Rike_Park_viewed_from_Tbilisi%27s_Peace_Bridge.jpg"
+ },
+ "telavi": {
+  "title": "თელავი ერეკლე მეფის სასახლის ჭიშკარი.jpg",
+  "author": "Lasha ge",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:%E1%83%97%E1%83%94%E1%83%9A%E1%83%90%E1%83%95%E1%83%98_%E1%83%94%E1%83%A0%E1%83%94%E1%83%99%E1%83%9A%E1%83%94_%E1%83%9B%E1%83%94%E1%83%A4%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%A1%E1%83%90%E1%83%AE%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%AD%E1%83%98%E1%83%A8%E1%83%99%E1%83%90%E1%83%A0%E1%83%98.jpg"
+ },
+ "meidan": {
+  "title": "Cityscapes of Tbilisi - TbilisiCityscapes8116.jpg",
+  "author": "lumoplank",
+  "license": "CC0",
+  "source": "https://commons.wikimedia.org/wiki/File:Cityscapes_of_Tbilisi_-_TbilisiCityscapes8116.jpg"
+ },
+ "mtskheta": {
+  "title": "Mtskheta - panorama.jpg",
+  "author": "Asif Masimov",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Mtskheta_-_panorama.jpg"
+ },
+ "tone-bread": {
+  "title": "Traditional georgian bread (tonis puri).jpg",
+  "author": "Ele.XCI",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Traditional_georgian_bread_(tonis_puri).jpg"
+ },
+ "gudauri": {
+  "title": "Gudauri Ski Resort, Gudauri, Georgia (Unsplash).jpg",
+  "author": "Alexey Okhrimenko alexeyok",
+  "license": "CC0",
+  "source": "https://commons.wikimedia.org/wiki/File:Gudauri_Ski_Resort,_Gudauri,_Georgia_(Unsplash).jpg"
+ },
+ "stepantsminda": {
+  "title": "Kazbegi, Stepantsminda, Trees, Georgia.jpg",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Kazbegi,_Stepantsminda,_Trees,_Georgia.jpg"
+ },
+ "vardzia-fresco": {
+  "title": "Vardzia - Frescoes Georgia.jpg",
+  "author": "Radosław Botev",
+  "license": "CC BY 3.0 pl",
+  "source": "https://commons.wikimedia.org/wiki/File:Vardzia_-_Frescoes_Georgia.jpg"
  }
 }
